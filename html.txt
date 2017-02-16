@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Python读写文件 - AllenW - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=03KQeESEmpLfzDqUo0NiWUg5Zd5aRam3JHBZTK05Wug1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/coffee/bundle-coffee.css?v=H7P3zU3_M529NtLVh9kKULJaZLDGv9Qz_L_VdgyN1P41"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/coffee/bundle-coffee-mobile.css?v=1iKAdPZiAsiSZxyLkZc794uq2ESKZjIW_SaLCVU6eZ41"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/allenblogs/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/allenblogs/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/allenblogs/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'allenblogs', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=tS1PZFcucx90qAXxuZGl5cn3W8IWd07aeQSqRapazoI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/allenblogs/"><img id="blogLogo" src="/Skins/custom/images/logo.gif" alt="返回主页" /></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/allenblogs/">AllenW</a></h1>
+<h2>想想看到的，回味写过的~~</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="navigator">
+			
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+	<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/allenblogs/">首页</a></li>
+	<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/AllenW">联系</a></li>
+	<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+	<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/allenblogs/rss">订阅</a>
+	<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/allenblogs/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a></li>
+</ul>
+
+
+			<div class="blogStats">
+				
+				<div id="blog_stats">
+<!--done-->
+随笔- 476&nbsp;
+文章- 0&nbsp;
+评论- 87&nbsp;
+</div>
+				
+			</div><!--end: blogStats -->
+		</div><!--end: navigator 博客导航栏 -->
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/allenblogs/archive/2010/09/13/1824842.html">Python读写文件</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>Python读写文件<br />1.open<br />使用open打开文件后一定要记得调用文件对象的close()方法。比如可以用try/finally语句来确保最后能关闭文件。</p>
+<p>file_object = open('thefile.txt')<br />try:<br />&nbsp;&nbsp;&nbsp;&nbsp; all_the_text = file_object.read( )<br />finally:<br />&nbsp;&nbsp;&nbsp;&nbsp; file_object.close( )</p>
+<p>注：不能把open语句放在try块里，因为当打开文件出现异常时，文件对象file_object无法执行close()方法。</p>
+<p>2.读文件<br />读文本文件<br />input = open('data', 'r')<br />#第二个参数默认为r<br />input = open('data')</p>
+<p>&nbsp;</p>
+<p>读二进制文件<br />input = open('data', 'rb')<br />&nbsp;</p>
+<p>读取所有内容<br />file_object = open('thefile.txt')<br />try:<br />&nbsp;&nbsp;&nbsp;&nbsp; all_the_text = file_object.read( )<br />finally:<br />&nbsp;&nbsp;&nbsp;&nbsp; file_object.close( )<br />&nbsp;</p>
+<p>读固定字节<br />file_object = open('abinfile', 'rb')<br />try:<br />&nbsp;&nbsp;&nbsp; while True:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; chunk = file_object.read(100)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if not chunk:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do_something_with(chunk)<br />finally:<br />&nbsp;&nbsp;&nbsp;&nbsp; file_object.close( )<br />&nbsp;</p>
+<p>读每行<br />list_of_all_the_lines = file_object.readlines( )</p>
+<p>如果文件是文本文件，还可以直接遍历文件对象获取每行：</p>
+<p>for line in file_object:<br />&nbsp;&nbsp;&nbsp;&nbsp; process line<br />&nbsp;</p>
+<p>3.写文件<br />写文本文件<br />output = open('data', 'w')<br />&nbsp;</p>
+<p>写二进制文件<br />output = open('data', 'wb')<br />&nbsp;</p>
+<p>追加写文件<br />output = open('data', 'w+')<br />&nbsp;</p>
+<p>写数据<br />file_object = open('thefile.txt', 'w')<br />file_object.write(all_the_text)<br />file_object.close( )<br />&nbsp;</p>
+<p>写入多行<br />file_object.writelines(list_of_text_strings)</p>
+<p>注意，调用writelines写入多行在性能上会比使用write一次性写入要高。</p>
+<p>在处理日志文件的时候，常常会遇到这样的情况：日志文件巨大，不可能一次性把整个文件读入到内存中进行处理，例如需要在一台物理内存为 2GB 的机器上处理一个 2GB 的日志文件，我们可能希望每次只处理其中 200MB 的内容。<br />在 Python 中，内置的 File 对象直接提供了一个 readlines(sizehint) 函数来完成这样的事情。以下面的代码为例：</p>
+<p>file = open('test.log', 'r')sizehint = 209715200&nbsp;&nbsp; # 200Mposition = 0lines = file.readlines(sizehint)while not file.tell() - position &lt; 0:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; position = file.tell()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lines = file.readlines(sizehint)</p>
+<p>每次调用 readlines(sizehint) 函数，会返回大约 200MB 的数据，而且所返回的必然都是完整的行数据，大多数情况下，返回的数据的字节数会稍微比 sizehint 指定的值大一点（除最后一次调用 readlines(sizehint) 函数的时候）。通常情况下，Python 会自动将用户指定的 sizehint 的值调整成内部缓存大小的整数倍。</p>
+<p>file在python是一个特殊的类型，它用于在python程序中对外部的文件进行操作。在python中一切都是对象，file也不例外，file有file的方法和属性。下面先来看如何创建一个file对象：</p>
+<p><br />file(name[, mode[, buffering]]) <br />file()函数用于创建一个file对象，它有一个别名叫open()，可能更形象一些，它们是内置函数。来看看它的参数。它参数都是以字符串的形式传递的。name是文件的名字。<br />mode是打开的模式，可选的值为r w a U，分别代表读（默认） 写 添加支持各种换行符的模式。用w或a模式打开文件的话，如果文件不存在，那么就自动创建。此外，用w模式打开一个已经存在的文件时，原有文件的内容会被清空，因为一开始文件的操作的标记是在文件的开头的，这时候进行写操作，无疑会把原有的内容给抹掉。由于历史的原因，换行符在不同的系统中有不同模式，比如在 unix中是一个\n，而在windows中是&lsquo;\r\n&rsquo;，用U模式打开文件，就是支持所有的换行模式，也就说&lsquo;\r&rsquo; '\n' '\r\n'都可表示换行，会有一个tuple用来存贮这个文件中用到过的换行符。不过，虽说换行有多种模式，读到python中统一用\n代替。在模式字符的后面，还可以加上+ b t这两种标识，分别表示可以对文件同时进行读写操作和用二进制模式、文本模式（默认）打开文件。<br />buffering如果为0表示不进行缓冲;如果为1表示进行&ldquo;行缓冲&ldquo;;如果是一个大于1的数表示缓冲区的大小，应该是以字节为单位的。</p>
+<p>file对象有自己的属性和方法。先来看看file的属性。</p>
+<p><br />closed #标记文件是否已经关闭，由close()改写 <br />encoding #文件编码 <br />mode #打开模式 <br />name #文件名 <br />newlines #文件中用到的换行模式，是一个tuple <br />softspace #boolean型，一般为0，据说用于print </p>
+<p>file的读写方法：</p>
+<p><br />F.read([size]) #size为读取的长度，以byte为单位 <br />F.readline([size]) <br />#读一行，如果定义了size，有可能返回的只是一行的一部分 <br />F.readlines([size]) <br />#把文件每一行作为一个list的一个成员，并返回这个list。其实它的内部是通过循环调用readline()来实现的。如果提供size参数，size是表示读取内容的总长，也就是说可能只读到文件的一部分。 <br />F.write(str) <br />#把str写到文件中，write()并不会在str后加上一个换行符 <br />F.writelines(seq) <br />#把seq的内容全部写到文件中。这个函数也只是忠实地写入，不会在每行后面加上任何东西。 <br />file的其他方法：</p>
+<p><br />F.close() <br />#关闭文件。python会在一个文件不用后自动关闭文件，不过这一功能没有保证，最好还是养成自己关闭的习惯。如果一个文件在关闭后还对其进行操作会产生ValueError <br />F.flush() <br />#把缓冲区的内容写入硬盘 <br />F.fileno() <br />#返回一个长整型的&rdquo;文件标签&ldquo; <br />F.isatty() <br />#文件是否是一个终端设备文件（unix系统中的） <br />F.tell() <br />#返回文件操作标记的当前位置，以文件的开头为原点 <br />F.next() <br />#返回下一行，并将文件操作标记位移到下一行。把一个file用于for ... in file这样的语句时，就是调用next()函数来实现遍历的。 <br />F.seek(offset[,whence]) <br />#将文件打操作标记移到offset的位置。这个offset一般是相对于文件的开头来计算的，一般为正数。但如果提供了whence参数就不一定了，whence可以为0表示从头开始计算，1表示以当前位置为原点计算。2表示以文件末尾为原点进行计算。需要注意，如果文件以a或a+的模式打开，每次进行写操作时，文件操作标记会自动返回到文件末尾。 <br />F.truncate([size]) <br />#把文件裁成规定的大小，默认的是裁到当前文件操作标记的位置。如果size比文件的大小还要大，依据系统的不同可能是不改变文件，也可能是用0把文件补到相应的大小，也可能是以一些随机的内容加上去。 </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div onclick="cnblogs_code_show('9433465e-947c-4fe2-b4ee-8bc7f27d5c0c')" class="cnblogs_code"><img src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" id="code_img_closed_9433465e-947c-4fe2-b4ee-8bc7f27d5c0c" class="code_img_closed" /><img src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" onclick="cnblogs_code_hide('9433465e-947c-4fe2-b4ee-8bc7f27d5c0c',event)" style="display: none;" id="code_img_opened_9433465e-947c-4fe2-b4ee-8bc7f27d5c0c" class="code_img_opened" /><span class="cnblogs_code_collapse">代码</span>
+<div id="cnblogs_code_open_9433465e-947c-4fe2-b4ee-8bc7f27d5c0c" class="cnblogs_code_hide">
+<pre><div><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><span style="color: #008000;">#</span><span style="color: #008000;">! /usr/bin/python</span><span style="color: #008000;"><br /></span><span style="color: #0000ff;">import</span><span style="color: #000000;"> os,sys<br /><br /></span><span style="color: #0000ff;">try</span><span style="color: #000000;">:<br />    fsock </span><span style="color: #000000;">=</span><span style="color: #000000;"> open(</span><span style="color: #800000;">"</span><span style="color: #800000;">D:/SVNtest/test.py</span><span style="color: #800000;">"</span><span style="color: #000000;">, </span><span style="color: #800000;">"</span><span style="color: #800000;">r</span><span style="color: #800000;">"</span><span style="color: #000000;">)<br /></span><span style="color: #0000ff;">except</span><span style="color: #000000;"> IOError:<br />    </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> </span><span style="color: #800000;">"</span><span style="color: #800000;">The file don't exist, Please double check!</span><span style="color: #800000;">"</span><span style="color: #000000;"><br />    exit()<br /></span><span style="color: #0000ff;">print</span><span style="color: #000000;"> </span><span style="color: #800000;">'</span><span style="color: #800000;">The file mode is </span><span style="color: #800000;">'</span><span style="color: #000000;">,fsock.mode<br /></span><span style="color: #0000ff;">print</span><span style="color: #000000;"> </span><span style="color: #800000;">'</span><span style="color: #800000;">The file name is </span><span style="color: #800000;">'</span><span style="color: #000000;">,fsock.name<br />P </span><span style="color: #000000;">=</span><span style="color: #000000;"> fsock.tell()<br /></span><span style="color: #0000ff;">print</span><span style="color: #000000;"> </span><span style="color: #800000;">'</span><span style="color: #800000;">the postion is %d</span><span style="color: #800000;">'</span><span style="color: #000000;"> </span><span style="color: #000000;">%</span><span style="color: #000000;">(P)<br />fsock.close()<br /><br /></span><span style="color: #008000;">#</span><span style="color: #008000;">Read file</span><span style="color: #008000;"><br /></span><span style="color: #000000;">fsock </span><span style="color: #000000;">=</span><span style="color: #000000;"> open(</span><span style="color: #800000;">"</span><span style="color: #800000;">D:/SVNtest/test.py</span><span style="color: #800000;">"</span><span style="color: #000000;">, </span><span style="color: #800000;">"</span><span style="color: #800000;">r</span><span style="color: #800000;">"</span><span style="color: #000000;">)<br />AllLines </span><span style="color: #000000;">=</span><span style="color: #000000;"> fsock.readlines()<br /></span><span style="color: #008000;">#</span><span style="color: #008000;">Method 1</span><span style="color: #008000;"><br /></span><span style="color: #0000ff;">for</span><span style="color: #000000;"> EachLine </span><span style="color: #0000ff;">in</span><span style="color: #000000;"> fsock:<br />    </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> EachLine<br /><br /></span><span style="color: #008000;">#</span><span style="color: #008000;">Method 2</span><span style="color: #008000;"><br /></span><span style="color: #0000ff;">print</span><span style="color: #000000;"> </span><span style="color: #800000;">'</span><span style="color: #800000;">Star</span><span style="color: #800000;">'</span><span style="color: #000000;">+</span><span style="color: #800000;">'</span><span style="color: #800000;">=</span><span style="color: #800000;">'</span><span style="color: #000000;">*</span><span style="color: #000000;">30</span><span style="color: #000000;"><br /></span><span style="color: #0000ff;">for</span><span style="color: #000000;"> EachLine </span><span style="color: #0000ff;">in</span><span style="color: #000000;"> AllLines:<br />    </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> EachLine<br /></span><span style="color: #0000ff;">print</span><span style="color: #000000;"> </span><span style="color: #800000;">'</span><span style="color: #800000;">End</span><span style="color: #800000;">'</span><span style="color: #000000;">+</span><span style="color: #800000;">'</span><span style="color: #800000;">=</span><span style="color: #800000;">'</span><span style="color: #000000;">*</span><span style="color: #000000;">30</span><span style="color: #000000;"><br />fsock.close()<br /><br /></span><span style="color: #008000;">#</span><span style="color: #008000;">write this file</span><span style="color: #008000;"><br /></span><span style="color: #000000;">fsock </span><span style="color: #000000;">=</span><span style="color: #000000;"> open(</span><span style="color: #800000;">"</span><span style="color: #800000;">D:/SVNtest/test.py</span><span style="color: #800000;">"</span><span style="color: #000000;">, </span><span style="color: #800000;">"</span><span style="color: #800000;">a</span><span style="color: #800000;">"</span><span style="color: #000000;">)<br />fsock.write(</span><span style="color: #800000;">"""</span><span style="color: #800000;"><br />#Line 1 Just for test purpose<br />#Line 2 Just for test purpose<br />#Line 3 Just for test purpose</span><span style="color: #800000;">"""</span><span style="color: #000000;">)<br />fsock.close()<br /><br /><br /></span><span style="color: #008000;">#</span><span style="color: #008000;">check the file status</span><span style="color: #008000;"><br /></span><span style="color: #000000;">S1 </span><span style="color: #000000;">=</span><span style="color: #000000;"> fsock.closed<br /></span><span style="color: #0000ff;">if</span><span style="color: #000000;"> True </span><span style="color: #000000;">==</span><span style="color: #000000;"> S1:<br />    </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> </span><span style="color: #800000;">'</span><span style="color: #800000;">the file is closed</span><span style="color: #800000;">'</span><span style="color: #000000;"><br /></span><span style="color: #0000ff;">else</span><span style="color: #000000;">:<br />    </span><span style="color: #0000ff;">print</span><span style="color: #000000;"> </span><span style="color: #800000;">'</span><span style="color: #800000;">The file donot close</span><span style="color: #800000;">'</span><span style="color: #000000;"><br /></span></div></pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><br />本文来自CSDN博客，转载请标明出处：<a href="http://blog.csdn.net/adupt/archive/2009/08/11/4435615.aspx">http://blog.csdn.net/adupt/archive/2009/08/11/4435615.aspx</a></p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2010-09-13 11:22</span> <a href='http://www.cnblogs.com/allenblogs/'>AllenW</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=1824842" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(1824842);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=71923,cb_entryId=1824842,cb_blogApp=currentBlogApp,cb_blogUserGuid='86127150-0376-df11-ba8f-001cf0cd104b',cb_entryCreatedDate='2010/9/13 11:22:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='ad_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='ad_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<DIV id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</DIV>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 AllenW
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>
